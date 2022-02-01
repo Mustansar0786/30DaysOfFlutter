@@ -11,7 +11,7 @@ class MyDrawer extends StatelessWidget {
     return Drawer(
       backgroundColor: Colors.deepOrange,
       child: ListView(
-// ignore: prefer_const_literals_to_create_immutables
+        // ignore: prefer_const_literals_to_create_immutables
         children: [
           DrawerHeader(
             padding: EdgeInsets.zero,
@@ -24,8 +24,9 @@ class MyDrawer extends StatelessWidget {
               accountEmail: const Text("mustansar.mh30@gmail.com"),
               // ignore: prefer_const_constructors
               currentAccountPicture: CircleAvatar(
-                  backgroundImage:
-                      const AssetImage("assets/images/Mustansar.png")),
+                backgroundImage:
+                    const AssetImage("assets/images/Mustansar.png"),
+              ),
             ),
           ),
           ListTile(
