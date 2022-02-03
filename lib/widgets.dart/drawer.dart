@@ -21,7 +21,7 @@ class MyDrawer extends StatelessWidget {
                 color: Colors.transparent,
               ),
               accountName: const Text("Mustansar"),
-              accountEmail: const Text("mustansar.mh30@gmail.com"),
+              accountEmail: const Text("Mustansar.mh30@gmail.com"),
               // ignore: prefer_const_constructors
               currentAccountPicture: CircleAvatar(
                 //radious directly not working

@@ -9,4 +9,9 @@ class Item {
   Item(this.id, this.name, this.desc, this.price, this.color, this.image);
 }
 
-final product = [Item("1", "iphone", "made by apple", 999, "red", "image")];
+class CatalogModel {
+  static final items = [
+    Item("1", "iphone", "made by apple", 999, "red",
+        "assets/images/Mustansar.png")
+  ];
+}
