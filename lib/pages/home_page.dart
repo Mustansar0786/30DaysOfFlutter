@@ -6,7 +6,7 @@ import 'package:flutter_catalog/widgets.dart/item_widget.dart';
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
 
-  final dummyList = List.generate(50, (index) => CatalogModel.items[0]);
+  final dummyList = List.generate(4, (index) => CatalogModel.items[0]);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
