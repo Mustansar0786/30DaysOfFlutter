@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 import 'package:flutter_catalog/models/catalog.dart';
 
 class ItemWidget extends StatelessWidget {
@@ -11,7 +10,7 @@ class ItemWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
       child: Card(
-        shape: StadiumBorder(),
+        shape: const StadiumBorder(),
         child: ListTile(
           onTap: () {},
           leading: CircleAvatar(radius: 30, child: Image.asset(item.image)),
