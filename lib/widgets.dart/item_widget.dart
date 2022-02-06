@@ -13,7 +13,7 @@ class ItemWidget extends StatelessWidget {
         shape: const StadiumBorder(),
         child: ListTile(
           onTap: () {},
-          leading: CircleAvatar(radius: 30, child: Image.asset(item.image)),
+          leading: CircleAvatar(radius: 30, child: Image.network(item.image)),
           title: Text(item.name),
           subtitle: Text(item.desc),
           trailing: Text(
