@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   loadData() async {
-    await Future.delayed(Duration(seconds: 2));
+    // await Future.delayed(const Duration(seconds: 1));
     final catalogJson =
         await rootBundle.loadString("assets/files/catalog.json");
     final catalogDecodedData = jsonDecode(catalogJson);
@@ -39,10 +39,43 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Catalog App'),
       ),
       body: (CatalogModel.items.isNotEmpty)
-          ? ListView.builder(
-              itemCount: CatalogModel.items.length,
-              itemBuilder: (context, index) =>
-                  ItemWidget(item: CatalogModel.items[index]))
+          ? GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 16.0,
+                mainAxisSpacing: 16,
+              ),
+              itemBuilder: (context, index) {
+                final item = CatalogModel.items[index];
+                return Card(
+                  clipBehavior: Clip.antiAlias,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  child: GridTile(
+                    header: Container(
+                      padding: EdgeInsets.all(10),
+                      child: Text(
+                        item.name,
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      decoration: BoxDecoration(color: Colors.deepPurple),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(40.0),
+                      child: Image.network(item.image),
+                    ),
+                    footer: Container(
+                      padding: EdgeInsets.all(10),
+                      child: Text(
+                        "\$  " + item.price.toString(),
+                        style: TextStyle(color: Colors.white),
+                        textAlign: TextAlign.right,
+                      ),
+                      decoration: BoxDecoration(color: Colors.deepPurple),
+                    ),
+                  ),
+                );
+              })
           : const Center(child: CircularProgressIndicator()),
       drawer: const MyDrawer(),
     );
