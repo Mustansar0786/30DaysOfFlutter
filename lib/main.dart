@@ -3,12 +3,12 @@ import 'package:flutter_catalog/pages/home_page.dart';
 import 'package:flutter_catalog/pages/login_page.dart';
 import 'package:flutter_catalog/utils/routes.dart';
 import 'package:flutter_catalog/widgets.dart/themes.dart';
-import 'package:velocity_x/velocity_x.dart';
 
 void main(List<String> args) {
-  runApp(const NeumorphicPage());
+  runApp(const MyApp());
 }
 
+/*
 class NeumorphicPage extends StatefulWidget {
   const NeumorphicPage({Key? key}) : super(key: key);
 
@@ -175,7 +175,7 @@ class NeumorphicApp extends StatelessWidget {
     );
   }
 }
-
+*/
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override

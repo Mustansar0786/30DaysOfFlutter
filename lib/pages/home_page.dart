@@ -65,10 +65,69 @@ class CatalogList extends StatelessWidget {
       shrinkWrap: true,
       itemCount: CatalogModel.items.length,
       itemBuilder: (context, index) {
-        final catalog = CatalogModel.items[index];
-        return CatalogItem(catalog: catalog);
+        final catalogItem = CatalogModel.items[index];
+        return CatalogItem(catalogItem: catalogItem);
       },
     );
+  }
+}
+
+class CatalogItem extends StatelessWidget {
+  final Item catalogItem;
+  const CatalogItem({Key? key, required this.catalogItem}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return VxBox(
+      child: Row(
+        children: [
+          CatalogImage(),
+          Expanded(
+              child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              catalogItem.name.text
+                  .color(MyThemes.darkBluishColor)
+                  .xl
+                  .bold
+                  .make(),
+              catalogItem.desc.text.make(),
+              10.heightBox,
+              ButtonBar(
+                alignment: MainAxisAlignment.spaceBetween,
+                // buttonPadding: Vx.mOnly(right: 16),
+                children: [
+                  "\$${catalogItem.price}".text.bold.xl.make(),
+                  ElevatedButton(
+                      onPressed: () {},
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                              MyThemes.darkBluishColor),
+                          shape: MaterialStateProperty.all(StadiumBorder())),
+                      child: "Buy".text.make())
+                ],
+              ).pOnly(right: 8),
+            ],
+          )),
+        ],
+      ),
+    ).white.rounded.square(150).make().p12();
+  }
+}
+
+class CatalogImage extends StatelessWidget {
+  const CatalogImage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return VxBox(
+      child: Icon(
+        Icons.home,
+        color: Colors.green,
+        size: 100,
+      ),
+    ).rounded.p8.color(MyThemes.creamColor).make().p16().w40(context);
   }
 }
 
@@ -86,18 +145,5 @@ class CatalogHeader extends StatelessWidget {
         "Trending Products".text.xl2.make(),
       ],
     );
-  }
-}
-
-class CatalogItem extends StatelessWidget {
-  final Item catalog;
-  const CatalogItem({Key? key, required this.catalog}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return VxBox(
-        child: Column(
-      children: [Image.network(catalog.image).box.red300.make()],
-    )).white.square(100).rounded.make().p12();
   }
 }
