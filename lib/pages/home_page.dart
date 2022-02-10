@@ -1,10 +1,10 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_catalog/models/catalog.dart';
+import 'package:flutter_catalog/utils/routes.dart';
 import 'package:flutter_catalog/widgets/home_widgets/catalog_list.dart';
 import 'package:flutter_catalog/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   loadData() async {
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 2));
     final catalogJson =
         await rootBundle.loadString("assets/files/catalog.json");
     final catalogDecodedData = jsonDecode(catalogJson);
@@ -41,16 +41,21 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
+        backgroundColor: MyThemes.darkBluishColor,
+        child: const Icon(CupertinoIcons.cart),
+      ),
       backgroundColor: MyThemes.creamColor,
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CatalogHeader().p16(),
+            const CatalogHeader().p16(),
             if (CatalogModel.items.isNotEmpty)
-              CatalogList().expand()
+              const CatalogList().expand()
             else
-              Expanded(
+              const Expanded(
                 child: Center(child: CircularProgressIndicator()),
               )
           ],

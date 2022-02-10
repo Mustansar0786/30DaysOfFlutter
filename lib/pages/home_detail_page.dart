@@ -9,6 +9,7 @@ class HomeDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(backgroundColor: Colors.transparent),
       backgroundColor: MyThemes.creamColor,
       body: SafeArea(
         bottom: false,
@@ -31,18 +32,33 @@ class HomeDetailPage extends StatelessWidget {
                   // width: context.screenWidth,
                   width: double.infinity,
                   color: Colors.white,
-                  child: Column(
-                    children: [
-                      catalog.name.text.bold
-                          .color(MyThemes.darkBluishColor)
-                          .xl4
-                          .make(),
-                      catalog.desc.text.xl.color(Vx.gray400).make()
-                    ],
-                  ).py64(),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        catalog.name.text.bold
+                            .color(MyThemes.darkBluishColor)
+                            .xl4
+                            .make(),
+                        catalog.desc.text.xl.color(Vx.gray400).make(),
+                        """
+                  Copyright (C) Microsoft Corporation. All rights reserved.
+                  
+                  Windows PowerShell
+                  Copyright (C) Microsoft Corporation. All rights reserved.
+                  
+                  Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+                  
+                  PS D:ProgramingProjectsVS Code Projectspawan8hoursTutorials\fluttercatalog>
+                  """
+                            .text
+                            .make()
+                            .p16()
+                      ],
+                    ).py64(),
+                  ),
                 ),
               ),
-            )
+            ),
           ],
         ).p16(),
       ),
@@ -60,8 +76,8 @@ class HomeDetailPage extends StatelessWidget {
                   backgroundColor:
                       MaterialStateProperty.all(MyThemes.darkBluishColor),
                   shape: MaterialStateProperty.all(const StadiumBorder())),
-              child: "Buy".text.xl.make(),
-            ).wh(100, 40)
+              child: "Add to cart".text.make(),
+            ).wh(110, 40)
           ],
         ).px(8),
       ),
