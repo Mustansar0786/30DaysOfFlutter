@@ -40,12 +40,23 @@ class Item {
 // here we will create a list of Item type so we can store values and their data. this list was created because we have to use it latar in listview.builder
 class CatalogModel {
   static List<Item> items = [
-    // Item(
-    //     id: 1,
-    //     name: "iphone",
-    //     desc: "made by apple",
-    //     price: 999,
-    //     color: "red",
-    //     image: "assets/images/Mustansar.png")
+    /*Item(
+        id: 1,
+        name: "iphone",
+        desc: "made by apple",
+        price: 999,
+        color: "red",
+       image: "assets/images/Mustansar.png")
+  */
   ];
+
+  static Item getById(int id) {
+    return items.firstWhere(
+      (element) => element.id == id,
+    );
+  }
+
+  static Item getByPosition(int pos) {
+    return items[pos];
+  }
 }
