@@ -7,6 +7,7 @@ class MyThemes {
       primarySwatch: Colors.deepPurple,
       cardColor: Colors.white,
       canvasColor: creamColor,
+      highlightColor: darkBluishColor,
       floatingActionButtonTheme:
           FloatingActionButtonThemeData(backgroundColor: darkBluishColor),
 
@@ -27,16 +28,21 @@ class MyThemes {
 
   static ThemeData darkTheme() {
     return (ThemeData(
-      // brightness: Brightness.dark,
+      brightness: Brightness.dark,
       // fontFamily: GoogleFonts.poppins().fontFamily,
       cardColor: Colors.black,
       canvasColor: darkCreamColor,
+      highlightColor: Vx.white,
+      elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(lightBluishColor))),
       floatingActionButtonTheme:
           FloatingActionButtonThemeData(backgroundColor: lightBluishColor),
+
       appBarTheme: const AppBarTheme(
         elevation: 0,
         backgroundColor: Colors.white,
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: IconThemeData(color: Colors.white),
         titleTextStyle: TextStyle(
           color: Colors.black,
           fontSize: 18,
@@ -49,5 +55,5 @@ class MyThemes {
   static Color creamColor = const Color(0xfff5f5f5);
   static Color darkBluishColor = const Color(0xff403b58);
   static Color darkCreamColor = Vx.gray800;
-  static Color lightBluishColor = Vx.purple400;
+  static Color lightBluishColor = Vx.indigo500;
 }
