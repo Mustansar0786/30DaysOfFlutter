@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/models/catalog.dart';
-import 'package:flutter_catalog/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class HomeDetailPage extends StatelessWidget {
@@ -9,8 +8,11 @@ class HomeDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.transparent),
-      backgroundColor: MyThemes.creamColor,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        // iconTheme: const IconThemeData(),
+      ),
+      backgroundColor: Theme.of(context).canvasColor,
       body: SafeArea(
         bottom: false,
         child: Column(
@@ -31,12 +33,12 @@ class HomeDetailPage extends StatelessWidget {
                 child: Container(
                   // width: context.screenWidth,
                   width: double.infinity,
-                  color: Colors.white,
+                  color: context.theme.cardColor,
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
                         catalog.name.text.bold
-                            .color(MyThemes.darkBluishColor)
+                            .color(context.theme.highlightColor)
                             .xl4
                             .make(),
                         catalog.desc.text.xl.color(Vx.gray400).make(),
@@ -51,6 +53,7 @@ class HomeDetailPage extends StatelessWidget {
                   PS D:ProgramingProjectsVS Code Projectspawan8hoursTutorials\fluttercatalog>
                   """
                             .text
+                            .color(context.theme.hintColor)
                             .make()
                             .p16()
                       ],
@@ -64,7 +67,7 @@ class HomeDetailPage extends StatelessWidget {
       ),
       bottomSheet: Container(
         padding: const EdgeInsets.symmetric(horizontal: 8),
-        color: MyThemes.creamColor,
+        color: context.theme.canvasColor,
         child: ButtonBar(
           alignment: MainAxisAlignment.spaceBetween,
           // buttonPadding: Vx.mOnly(right: 16),
@@ -73,8 +76,6 @@ class HomeDetailPage extends StatelessWidget {
             ElevatedButton(
               onPressed: () {},
               style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all(MyThemes.darkBluishColor),
                   shape: MaterialStateProperty.all(const StadiumBorder())),
               child: "Add to cart".text.make(),
             ).wh(110, 40)

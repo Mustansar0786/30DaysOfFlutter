@@ -44,9 +44,7 @@ class MyThemes {
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(color: Colors.white),
         titleTextStyle: TextStyle(
-          color: Colors.black,
           fontSize: 18,
-          fontWeight: FontWeight.bold,
         ),
       ),
     ));
